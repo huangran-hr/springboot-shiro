@@ -85,6 +85,9 @@ CREATE TABLE `category` (
 
 
 /*===================================  data ==============================================*/
+INSERT INTO `user` VALUES (3, 'test', '9ee89aa537fe8e62af0b6cc3653cadec', 'EqroWx62Qg1OEmKv4UinWA==');
+INSERT INTO `user` VALUES (4, 'admin', '0e680dd39023e6aebfbb07b984f6bab1', 'vKTjIsAHU7gTJQ0VH9TL7w==');
+INSERT INTO `user` VALUES (5, 'editor', 'e5aa890550fa3cdf17ada50368686e98', 'JgUr/CENvAlXF0ajgCq89A==');
 
 INSERT INTO `admin_role` VALUES (1, 'sysAdmin', '系统管理员');
 INSERT INTO `admin_role` VALUES (2, 'contentManager', '内容管理员');
