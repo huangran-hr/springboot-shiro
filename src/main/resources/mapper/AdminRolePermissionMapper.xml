@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.springboot.mapper.AdminRolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.hr.springboot.domain.AdminRolePermission">
+    <!--@mbg.generated generated on Wed Apr 29 10:47:18 CST 2020.-->
+    <!--@Table admin_role_permission-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 29 10:47:18 CST 2020.-->
+    id, rid, pid
+  </sql>
+    <select id="findAllByRid" resultMap="BaseResultMap">
+      select * from admin_role_permission
+      where  rid in
+      <foreach collection="list" item="rid" open="(" separator="," close=")" >
+        #{rid}
+      </foreach>
+    </select>
+</mapper>

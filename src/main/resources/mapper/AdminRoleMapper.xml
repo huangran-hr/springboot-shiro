@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.springboot.mapper.AdminRoleMapper">
+  <resultMap id="BaseResultMap" type="com.hr.springboot.domain.AdminRole">
+    <!--@mbg.generated generated on Sun Apr 26 17:42:15 CST 2020.-->
+    <!--@Table admin_role-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_zh" jdbcType="VARCHAR" property="nameZh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Sun Apr 26 17:42:15 CST 2020.-->
+    id, `name`, name_zh
+  </sql>
+    <select id="selectRolesByIds" resultMap="BaseResultMap">
+      select * from admin_role where id in
+      <foreach collection="list" item="id" open="(" separator="," close=")">
+        #{id}
+      </foreach>
+    </select>
+</mapper>

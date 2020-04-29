@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.springboot.mapper.AdminPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.hr.springboot.domain.AdminPermission">
+    <!--@mbg.generated generated on Wed Apr 29 10:47:18 CST 2020.-->
+    <!--@Table admin_permission-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 29 10:47:18 CST 2020.-->
+    id, `name`, `desc`, url
+  </sql>
+    <select id="findAllById" resultMap="BaseResultMap">
+      select * from admin_permission
+      where  id in
+      <foreach collection="list" item="id" open="(" separator="," close=")" >
+        #{id}
+      </foreach>
+
+    </select>
+</mapper>

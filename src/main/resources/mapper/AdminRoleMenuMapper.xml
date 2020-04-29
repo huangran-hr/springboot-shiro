@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.springboot.mapper.AdminRoleMenuMapper">
+  <resultMap id="BaseResultMap" type="com.hr.springboot.domain.AdminRoleMenu">
+    <!--@mbg.generated generated on Sun Apr 26 17:42:15 CST 2020.-->
+    <!--@Table admin_role_menu-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Sun Apr 26 17:42:15 CST 2020.-->
+    id, rid, mid
+  </sql>
+    <select id="selectAllByRid" resultMap="BaseResultMap">
+      select * from admin_role_menu
+      where  rid in
+      <foreach collection="list" item="rid" open="(" separator="," close=")" >
+        #{rid}
+      </foreach>
+    </select>
+</mapper>

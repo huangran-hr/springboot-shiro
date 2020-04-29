@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.springboot.mapper.AdminMenuMapper">
+  <resultMap id="BaseResultMap" type="com.hr.springboot.domain.AdminMenu">
+    <!--@mbg.generated generated on Sun Apr 26 17:35:38 CST 2020.-->
+    <!--@Table admin_menu-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_zh" jdbcType="VARCHAR" property="nameZh" />
+    <result column="icon_cls" jdbcType="VARCHAR" property="iconCls" />
+    <result column="component" jdbcType="VARCHAR" property="component" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Sun Apr 26 17:35:38 CST 2020.-->
+    id, `path`, `name`, name_zh, icon_cls, componemt, parent_id
+  </sql>
+
+    <select id="findAllById" resultMap="BaseResultMap">
+      select * from admin_menu
+      where  id in
+      <foreach collection="list" item="menuId" open="(" separator="," close=")" >
+        #{menuId}
+      </foreach>
+    </select>
+</mapper>
