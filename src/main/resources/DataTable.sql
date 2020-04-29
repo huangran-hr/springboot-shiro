@@ -85,6 +85,7 @@ CREATE TABLE `category` (
 
 
 /*===================================  data ==============================================*/
+/* 密码都是 123456*/
 INSERT INTO `user` VALUES (3, 'test', '9ee89aa537fe8e62af0b6cc3653cadec', 'EqroWx62Qg1OEmKv4UinWA==');
 INSERT INTO `user` VALUES (4, 'admin', '0e680dd39023e6aebfbb07b984f6bab1', 'vKTjIsAHU7gTJQ0VH9TL7w==');
 INSERT INTO `user` VALUES (5, 'editor', 'e5aa890550fa3cdf17ada50368686e98', 'JgUr/CENvAlXF0ajgCq89A==');
